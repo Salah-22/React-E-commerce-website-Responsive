@@ -1,0 +1,78 @@
+.container {
+  display: grid;
+  grid-template-areas:
+    "title "
+    "form";
+  grid-template-columns: 100%;
+  grid-template-rows: 10% 90%;
+  width: 100%;
+  height: 88vh;
+}
+
+.title {
+  grid-area: title;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact_container {
+  grid-area: form;
+  margin: 0 auto;
+  padding: 20px;
+  width: 25%;
+  height: 50%;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.95) 0px 5px 15px;
+  border-radius: 5px;
+}
+
+.contact_container .form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  font-family: "Lato";
+  font-weight: 400;
+  gap: 1rem;
+}
+
+.form_control,
+textarea {
+  border: solid 2px #000000;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #fff;
+  color: #000000;
+  letter-spacing: 1px;
+}
+
+.form button {
+  height: 34px;
+  font: 700 12px "Lato", sans-serif;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  background-color: black;
+  cursor: pointer;
+  transition: background-color 0.5s;
+  overflow: hidden;
+  color: white;
+  border: none;
+}
+
+.form button:hover {
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+}
+
+@media screen and (max-width: 654px) {
+  .contact_container {
+    width: 80%;
+  }
+
+  .form {
+    width: 100%;
+  }
+}

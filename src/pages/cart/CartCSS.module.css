@@ -1,0 +1,99 @@
+.container {
+  display: grid;
+  grid-template-areas:
+    "title title"
+    "side-bar cards";
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 10% 90%;
+  width: 100%;
+  height: 88vh;
+}
+
+.title {
+  grid-area: title;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkout {
+  height: fit-content;
+  margin-inline: 10px;
+  padding: 10px;
+  grid-area: side-bar;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.95) 0px 5px 15px;
+  border-radius: 5px;
+}
+
+.checkout .checkout_totale {
+  font-size: var(--fs-medium);
+}
+
+.checkout button {
+  height: 34px;
+  margin-top: auto;
+  font: 700 12px "Lato", sans-serif;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  background-color: black;
+  cursor: pointer;
+  transition: background-color 0.5s;
+  overflow: hidden;
+  color: white;
+  border: none;
+}
+
+.form button:hover {
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+}
+
+.cards_container {
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.cards_container .empty {
+  font-size: var(--fs-big);
+  font-weight: bold;
+  align-self: center;
+}
+
+.cards {
+  grid-area: cards;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 10px;
+}
+
+.cards_container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.cards_container::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.cards_container::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+@media screen and (max-width: 654px) {
+  .container {
+    grid-template-areas:
+      "title "
+      "side-bar "
+      "cards";
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+  }
+}

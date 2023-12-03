@@ -1,0 +1,101 @@
+.cart_card {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: background-color 0.5s;
+  transition: box-shadow 0.5s;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  height: 186px;
+  width: 100%;
+  border-radius: 5px;
+  position: relative;
+}
+
+.cart_card:hover {
+  box-shadow: rgba(0, 0, 0, 0.95) 0px 5px 15px;
+}
+
+.cart_card img {
+  width: 15%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.cart_card .title {
+  width: 55%;
+  min-height: 75%;
+  font-size: var(--fs-big);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cart_card .title a {
+  font-size: var(--fs-small);
+}
+
+.add_remove {
+  width: 80px;
+  height: 30px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add_remove input {
+  border: none;
+  text-align: center;
+  width: 32px;
+  font-size: var(--fs-small);
+  color: #43484d;
+  font-weight: 300;
+}
+
+.add_remove button {
+  width: 30px;
+  height: 30px;
+  background-color: #e1e8ee;
+  border: none;
+  cursor: pointer;
+}
+
+.add_remove input:focus {
+  outline: 0;
+}
+
+.delete {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.cart_card .delete img {
+  width: 20px;
+  height: 20px;
+}
+.price {
+  font-size: var(--fs-big);
+  font-weight: bold;
+  margin-right: 10px;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
+@media screen and (max-width: 654px) {
+  .cart_card img {
+    width: 30%;
+  }
+
+  .cart_card .delete img {
+    width: 15px;
+    height: 15px;
+  }
+}
