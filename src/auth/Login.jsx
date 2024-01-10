@@ -30,7 +30,9 @@ const Login = () => {
         </div>
         <div className={LoginCSS.contact_container}>
           <form className={LoginCSS.form} onSubmit={handleLogin}>
+            <label htmlFor="name">name : user</label>
             <input
+              id="name"
               type="text"
               className={LoginCSS.form_control}
               placeholder="NAME"
@@ -38,7 +40,9 @@ const Login = () => {
               value={name}
             />
 
+            <label htmlFor="pass">pass: 12345678</label>
             <input
+              id="pass"
               type="password"
               placeholder="PASSWORD"
               className={LoginCSS.form_control}
