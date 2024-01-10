@@ -1,8 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import ContactCSS from "./ContactCSS.module.css";
 import "../../index.css";
 
 const Contact = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const clearFrom = () => {
+    setName("");
+    setEmail("");
+    setMessage("");
+  };
+
+  const validateForm = () => {
+    return name && email && message;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      alert("Thanks for contacting us !!");
+      clearFrom();
+    } else {
+      alert("please fill the form");
+    }
+  };
   return (
     <>
       <div className={ContactCSS.container}>
@@ -14,15 +37,15 @@ const Contact = () => {
           <form
             id="contact-form"
             className={ContactCSS.form_horizontal}
-            role="form"
+            onSubmit={handleSubmit}
           >
             <input
               type="text"
               className={ContactCSS.form_control}
               placeholder="NAME"
               name="name"
-              value=""
-              required
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
 
             <input
@@ -30,8 +53,8 @@ const Contact = () => {
               className={ContactCSS.form_control}
               placeholder="EMAIL"
               name="email"
-              value=""
-              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
 
             <textarea
@@ -39,10 +62,11 @@ const Contact = () => {
               rows="10"
               placeholder="MESSAGE"
               name="message"
-              required
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
             ></textarea>
 
-            <button>
+            <button type="submit">
               <div className={ContactCSS.btn_txt}>SEND</div>
             </button>
           </form>

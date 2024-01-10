@@ -19,6 +19,8 @@ const Cart = () => {
   const handleCheckOut = () => {
     if (login) {
       alert("yesss");
+    } else if (totalPrice === 0) {
+      alert("your cart is empty");
     } else {
       setPopup(true);
     }

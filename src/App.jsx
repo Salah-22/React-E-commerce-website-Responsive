@@ -4,7 +4,7 @@ import Shop from "./pages/shop/Shop";
 import Header from "./components/Header";
 import Cart from "./pages/cart/Cart";
 import Contact from "./pages/contact/Contact";
-import Article from "./components/Article";
+import ShopItemDetails from "./pages/shop/ShopItemDetails";
 import Login from "./auth/Login";
 import { useCart } from "./context/CartContext";
 import fetchData from "./api/data";
@@ -39,7 +39,7 @@ function App() {
             <Route path="/" element={<Shop />} />
             <Route path="/Cart" element={<Cart />} />
             <Route path="/Contact" element={<Contact />} />
-            <Route path="/product/:productId" element={<Article />} />
+            <Route path="/product/:productId" element={<ShopItemDetails />} />
             <Route path="/login" element={<Login />} />
           </Routes>
         </Router>

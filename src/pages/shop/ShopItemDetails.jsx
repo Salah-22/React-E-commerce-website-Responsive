@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
-import { useCart } from "../context/CartContext";
-import ArticaleCSS from "./ArticaleCSS.module.css";
+import { useCart } from "../../context/CartContext";
+import ShopItemDetailsCSS from "./ShopItemDetailsCSS.module.css";
 import Rating from "@mui/material/Rating";
 
-const Article = () => {
+const ShopItemDetails = () => {
   const { products, addToCart } = useCart();
   const { productId } = useParams();
 
@@ -16,17 +16,17 @@ const Article = () => {
   }
 
   return (
-    <div className={ArticaleCSS.container}>
-      <div className={ArticaleCSS.product_container}>
-        <div className={ArticaleCSS.product_image}>
+    <div className={ShopItemDetailsCSS.container}>
+      <div className={ShopItemDetailsCSS.product_container}>
+        <div className={ShopItemDetailsCSS.product_image}>
           <img src={product.image} alt="product image" />
         </div>
 
-        <div className={ArticaleCSS.product_detailes}>
-          <div className={ArticaleCSS.price}>{product.price}$</div>
+        <div className={ShopItemDetailsCSS.product_detailes}>
+          <div className={ShopItemDetailsCSS.price}>{product.price}$</div>
 
-          <div className={ArticaleCSS.title}>{product.title}</div>
-          <div className={ArticaleCSS.rating}>
+          <div className={ShopItemDetailsCSS.title}>{product.title}</div>
+          <div className={ShopItemDetailsCSS.rating}>
             {product.rating.rate}
             <Rating
               name="half-rating-read"
@@ -34,12 +34,14 @@ const Article = () => {
               precision={0.5}
               readOnly
             />
-            <div className={ArticaleCSS.reviews}>
+            <div className={ShopItemDetailsCSS.reviews}>
               {product.rating.count} Ratings
             </div>
           </div>
           <hr />
-          <div className={ArticaleCSS.description}>{product.description}</div>
+          <div className={ShopItemDetailsCSS.description}>
+            {product.description}
+          </div>
           <hr />
           <button onClick={() => addToCart(product.id)}>
             Add To Cart ({product.quantity})
@@ -50,4 +52,4 @@ const Article = () => {
   );
 };
 
-export default Article;
+export default ShopItemDetails;
