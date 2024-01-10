@@ -1,11 +1,11 @@
-import React, { useContext, useState, useEffect } from "react";
-import { CartContext } from "../context/ShopContext";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import HeaderCSS from "./Header.module.css";
 import "../index.css";
+import { useCart } from "../context/CartContext";
 
 const Header = () => {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems } = useCart();
   const [navVisible, setNavVisible] = useState(true);
   const totalProduct = cartItems.reduce((total, product) => {
     return total + product.quantity;

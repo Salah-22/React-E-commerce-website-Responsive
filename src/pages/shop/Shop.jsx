@@ -1,12 +1,12 @@
-import React, { useState, useContext } from "react";
-import { CartContext } from "../../context/ShopContext";
+import React, { useState } from "react";
+import { useCart } from "../../context/CartContext";
 import ShopItems from "./ShopItems";
 import ShopCSS from "./ShopCSS.module.css";
 import Select from "react-select";
 import "../../index.css";
 
 const Shop = () => {
-  const { products } = useContext(CartContext);
+  const { products } = useCart();
   const [select, setSelect] = useState(null);
 
   const categories = [...new Set(products.map((product) => product.category))];

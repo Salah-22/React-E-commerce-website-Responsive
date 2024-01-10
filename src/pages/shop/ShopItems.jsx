@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { CartContext } from "../../context/ShopContext";
 import ShopItemsCSS from "./ShopItemsCSS.module.css";
 import "../../index.css";
+import { useCart } from "../../context/CartContext";
 
 const ShopItems = ({ product }) => {
-  const { addToCart } = useContext(CartContext);
+  const { addToCart } = useCart();
 
   return (
     <div className={ShopItemsCSS.card}>

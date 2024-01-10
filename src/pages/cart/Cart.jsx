@@ -1,12 +1,14 @@
-import React, { useContext, useState } from "react";
-import { CartContext } from "../../context/ShopContext";
+import React, { useState } from "react";
+import { useCart } from "../../context/CartContext";
+import { useUser } from "../../context/UserContext";
 import CartItem from "./CartItem";
 import { useNavigate } from "react-router-dom";
 import CartCSS from "./CartCSS.module.css";
 import "../../index.css";
 
 const Cart = () => {
-  const { cartItems, login } = useContext(CartContext);
+  const { cartItems } = useCart();
+  const { login } = useUser();
   const [popup, setPopup] = useState(false);
   const navigate = useNavigate();
 

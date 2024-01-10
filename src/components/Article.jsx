@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
-import { CartContext } from "../context/ShopContext";
+import { useCart } from "../context/CartContext";
 import ArticaleCSS from "./ArticaleCSS.module.css";
 import Rating from "@mui/material/Rating";
 
 const Article = () => {
-  const { products, addToCart } = useContext(CartContext);
+  const { products, addToCart } = useCart();
   const { productId } = useParams();
 
   const product = products.find(

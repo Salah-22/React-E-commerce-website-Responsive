@@ -1,11 +1,11 @@
-import React, { useState, useContext } from "react";
-import { CartContext } from "../context/ShopContext";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LoginCSS from "./LoginCSS.module.css";
 import "../index.css";
+import { useUser } from "../context/UserContext";
 
 const Login = () => {
-  const { setLogin } = useContext(CartContext);
+  const { setLogin } = useUser();
   const [name, setName] = useState("");
   const [pass, setPass] = useState("");
   const navigate = useNavigate();

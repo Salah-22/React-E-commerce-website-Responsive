@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { CartContext } from "../../context/ShopContext";
+import { useCart } from "../../context/CartContext";
 import CartItemCSS from "./CartItemCSS.module.css";
 import "../../index.css";
 
 const CartItem = ({ product }) => {
-  const { addToCart, removeFromCart, deleteProduct } = useContext(CartContext);
+  const { addToCart, removeFromCart, deleteProduct } = useCart();
   return (
     <div className={CartItemCSS.cart_card}>
       <img src={product.image} alt="" />
@@ -25,7 +25,7 @@ const CartItem = ({ product }) => {
         className={CartItemCSS.delete}
         onClick={() => deleteProduct(product.id)}
       >
-        <img src="trash.svg" alt="" />
+        <img src="trash.svg" alt="trash" />
       </button>
     </div>
   );
