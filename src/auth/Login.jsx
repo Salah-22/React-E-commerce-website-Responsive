@@ -5,19 +5,23 @@ import "../index.css";
 import { useUser } from "../context/UserContext";
 
 const Login = () => {
-  const { setLogin } = useUser();
-  const [name, setName] = useState("");
-  const [pass, setPass] = useState("");
-  const navigate = useNavigate();
+  const handleValidation = () => {
+    return name && pass.length >= 8;
+  };
 
-  const handleLogin = () => {
-    if (name === "user" && pass === "wic2") {
+  const handleLogin = (e) => {
+    if (name === "user" && pass === "12345678") {
       setLogin(true);
       navigate("/Cart");
     } else {
       setLogin(false);
     }
   };
+
+  const { setLogin } = useUser();
+  const [name, setName] = useState("");
+  const [pass, setPass] = useState("");
+  const navigate = useNavigate();
   return (
     <>
       <div className={LoginCSS.container}>
@@ -25,13 +29,13 @@ const Login = () => {
           <h1>Sign In</h1>
         </div>
         <div className={LoginCSS.contact_container}>
-          <form role="form" className={LoginCSS.form}>
+          <form className={LoginCSS.form} onSubmit={handleLogin}>
             <input
               type="text"
               className={LoginCSS.form_control}
               placeholder="NAME"
               onChange={(e) => setName(e.target.value)}
-              required
+              value={name}
             />
 
             <input
@@ -39,9 +43,11 @@ const Login = () => {
               placeholder="PASSWORD"
               className={LoginCSS.form_control}
               onChange={(e) => setPass(e.target.value)}
-              required
+              value={pass}
             />
-            <button onClick={handleLogin}>Login</button>
+            <button type="submit" disabled={!handleValidation()}>
+              Login
+            </button>
           </form>
         </div>
       </div>
