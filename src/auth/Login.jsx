@@ -10,6 +10,7 @@ const Login = () => {
   };
 
   const handleLogin = (e) => {
+    e.preventDefault();
     if (name === "user" && pass === "12345678") {
       setLogin(true);
       navigate("/Cart");
